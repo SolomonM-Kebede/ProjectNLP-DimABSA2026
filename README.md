@@ -95,3 +95,36 @@ The system supports:
 ---
 
 ## Repository Structure
+```
+├── data/                # JSONL datasets
+├── datasets/            # Dataset classes
+├── training/            # Training loops
+├── evaluation/          # Metrics and evaluation scripts
+├── models/              # Model configurations
+├── utils/               # Helper functions
+└── README.md
+```
+
+---
+
+---
+
+## Reproducibility
+
+- Fixed random seeds
+- Deterministic decoding settings where applicable
+- Consistent evaluation protocol across all subtasks
+
+---
+
+## Notes
+
+- Subtask 1 focuses on **model comparison**
+- Subtasks 2 and 3 focus on **structured generation and optimization**
+- This repository is designed for experimentation and analysis
+
+---
+
+## Citation
+
+If you use this repository or build upon it, please cite the corresponding SemEval task and this work.
