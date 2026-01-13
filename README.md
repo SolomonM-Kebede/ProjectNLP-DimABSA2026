@@ -90,7 +90,6 @@ The system supports:
 - Partial vs Full match (Subtask 3)
 - RMSE (Valence, Arousal)
 - Concordance Correlation Coefficient (CCC)
-- NULL prediction rate analysis
 
 ---
 
