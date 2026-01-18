@@ -7,7 +7,7 @@ from utils import loader, plot
 """
 To run on the terminal: streamlit run stream-app.py
 """
-st.set_page_config(page_title="DimABSA Dashboard", layout="wide")ru
+st.set_page_config(page_title="DimABSA Dashboard", layout="wide")
 st.title("DimABSA 2026 - Training & Evaluation Dashboard")
 
 # sidebar 
