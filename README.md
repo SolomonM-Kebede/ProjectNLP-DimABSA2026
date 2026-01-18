@@ -116,6 +116,39 @@ The system supports:
 
 ---
 
+## Dashboard & Visualization
+
+A Streamlit-based interactive dashboard has been developed to visualize:
+
+- Training and validation losses per epoch
+- Step-level signal spectrum of training losses
+- Best epoch highlighting
+- Comparison of evaluation metrics (CCC, RMSE, F1, etc.) across models and datasets
+
+### Run locally via Streamlit
+
+```bash
+# From project root
+streamlit run stream-app.py
+```
+### Run via Docker 
+#### Build the docker image
+```bash
+docker build -t solozk/dimaabsa-dashboard .
+```
+#### Run the container 
+```bash
+docker run -p 8501:8501 solozk/dimabsa-dashboard
+```
+Then open the browser http://localhost:8501
+
+---
+
+## Quick Links 
+- [Streamlit Dashboard](https://solomonm-kebede-projectnlp-dimabsa2026-stream-app-cgvtf8.streamlit.app/)
+- Docker Hub Image: ```bash solozk/dimabsa-dashboard```
+
+---
 ## Notes
 
 - Subtask 1 focuses on **model comparison**
