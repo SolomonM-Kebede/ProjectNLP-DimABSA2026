@@ -49,7 +49,7 @@ elif subtask in ["subtask2", "subtask3"] and isinstance(metrics, dict):
     train_loss = metrics.get("train_loss_epoch", [])
     val_loss = metrics.get("test_loss_epoch", [])
     step_losses = metrics.get("all_step_losses", [])
-    f1_scores = metrics.get("f1_epoch", [])
+    f1_scores = metrics.get("test_f1", [])
     best_epoch = metrics.get("best_epoch", 0)
 
     # Training & Validation Loss
