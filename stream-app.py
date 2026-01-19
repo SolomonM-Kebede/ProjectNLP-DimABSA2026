@@ -49,6 +49,7 @@ elif subtask in ["subtask2", "subtask3"] and isinstance(metrics, dict):
     train_loss = metrics.get("train_loss_epoch", [])
     val_loss = metrics.get("test_loss_epoch", [])
     step_losses = metrics.get("all_step_losses", [])
+    f1_scores = metrics.get("f1_epoch", [])
     best_epoch = metrics.get("best_epoch", 0)
 
     # Training & Validation Loss
@@ -56,17 +57,19 @@ elif subtask in ["subtask2", "subtask3"] and isinstance(metrics, dict):
     fig1 = plot.plot_loss(train_loss, val_loss)
     st.pyplot(fig1)
 
+    # F1 vs Epoch
+    if f1_scores:
+        st.write("### F1 Score vs Epoch")
+        fig_f1 = plot.plot_f1_with_best_epoch(f1_scores, best_epoch)
+        st.pyplot(fig_f1)
+
     # Signal spectrum of step-level losses
-    st.write("### Signal Spectrum of Training Loss (Step-level)")
-    fig2 = plot.plot_signal_spectrum(step_losses)
-    st.pyplot(fig2)
+    if step_losses:
+        st.write("### Signal Spectrum of Training Loss (Step-level)")
+        fig2 = plot.plot_signal_spectrum(step_losses)
+        st.pyplot(fig2)
 
-    # Highlight best epoch
-    st.write("### Best Epoch Highlight")
-    fig3 = plot.mark_best_epoch(train_loss, val_loss, best_epoch)
-    st.pyplot(fig3)
-
-    st.write(f"**Best Epoch:** {best_epoch + 1}")
+    st.write(f"**Best Epoch:** {best_epoch}")
 
 else:
     st.warning("Unsupported file format or subtask")

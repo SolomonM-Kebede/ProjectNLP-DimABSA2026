@@ -52,3 +52,21 @@ def mark_best_epoch(train_loss, val_loss, best_epoch, title="Loss with Best Epoc
     plt.axvline(x=best_epoch+1, color='red', linestyle='--', label="Best Epoch")
     plt.legend()
     return plt
+
+def plot_f1_with_best_epoch(f1_scores, best_epoch, title="F1 Score vs Epoch"):
+    epochs = range(1, len(f1_scores) + 1)
+
+    plt.figure(figsize=(8, 5))
+    plt.plot(epochs, f1_scores, marker='o', label="F1 Score")
+
+    # Mark best epoch
+    plt.axvline(x=best_epoch + 1, color='red', linestyle='--', label="Best Epoch")
+    plt.scatter(best_epoch + 1, f1_scores[best_epoch], zorder=5)
+
+    plt.xlabel("Epoch")
+    plt.ylabel("F1 Score")
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    return plt
