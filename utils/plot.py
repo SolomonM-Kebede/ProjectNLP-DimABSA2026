@@ -59,9 +59,32 @@ def plot_f1_with_best_epoch(f1_scores, best_epoch, title="F1 Score vs Epoch"):
     plt.figure(figsize=(8, 5))
     plt.plot(epochs, f1_scores, marker='o', label="F1 Score")
 
-    # Mark best epoch
-    plt.axvline(x=best_epoch, color='red', linestyle='--', label="Best Epoch")
-    plt.scatter(best_epoch, f1_scores[best_epoch], zorder=8)
+    # Normalize best_epoch (handle 0-based vs 1-based)
+    if best_epoch >= 1 and best_epoch <= len(f1_scores):
+        best_epoch_plot = best_epoch
+        best_idx = best_epoch - 1
+    elif best_epoch < len(f1_scores):
+        best_epoch_plot = best_epoch + 1
+        best_idx = best_epoch
+    else:
+        best_epoch_plot = None
+
+    # Draw vertical line (safe)
+    if best_epoch_plot:
+        plt.axvline(
+            x=best_epoch_plot,
+            color='orange',
+            linestyle='--',
+            label='Best Epoch'
+        )
+
+        # Draw point ONLY if valid
+        if 0 <= best_idx < len(f1_scores):
+            plt.scatter(
+                best_epoch_plot,
+                f1_scores[best_idx],
+                zorder=8
+            )
 
     plt.xlabel("Epoch")
     plt.ylabel("F1 Score")
