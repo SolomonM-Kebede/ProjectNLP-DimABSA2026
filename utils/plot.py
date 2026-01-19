@@ -60,8 +60,8 @@ def plot_f1_with_best_epoch(f1_scores, best_epoch, title="F1 Score vs Epoch"):
     plt.plot(epochs, f1_scores, marker='o', label="F1 Score")
 
     # Mark best epoch
-    plt.axvline(x=best_epoch + 1, color='red', linestyle='--', label="Best Epoch")
-    plt.scatter(best_epoch + 1, f1_scores[best_epoch], zorder=5)
+    plt.axvline(x=best_epoch, color='red', linestyle='--', label="Best Epoch")
+    plt.scatter(best_epoch, f1_scores[best_epoch], zorder=5)
 
     plt.xlabel("Epoch")
     plt.ylabel("F1 Score")
