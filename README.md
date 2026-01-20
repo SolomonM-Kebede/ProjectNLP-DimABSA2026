@@ -146,7 +146,10 @@ Then open the browser http://localhost:8501
 
 ## Quick Links 
 - [Streamlit Dashboard](https://solomonm-kebede-projectnlp-dimabsa2026-stream-app-cgvtf8.streamlit.app/)
-- Docker Hub Image: ```bash solozk/dimabsa-dashboard```
+- Docker Hub Image: 
+```bash
+ solozk/dimabsa-dashboard
+ ```
 
 ---
 ## Notes
